@@ -1,5 +1,7 @@
 FROM ubuntu
 
+MAINTAINER jkgeyti
+
 RUN apt-get update
 
 RUN apt-get -y install git python build-essential g++ flex bison gperf ruby perl \
@@ -17,3 +19,7 @@ RUN cd /opt && \
   ln -s /opt/casperjs/bin/casperjs /usr/local/bin/casperjs
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Default command
+ENTRYPOINT "phantomjs"
+CMD ["--help"]
