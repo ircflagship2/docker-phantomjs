@@ -18,10 +18,7 @@ RUN cd /opt && \
   git clone git://github.com/n1k0/casperjs.git && \
   ln -s /opt/casperjs/bin/casperjs /usr/local/bin/casperjs
 
-RUN apt-get uninstall -y git python build-essential g++ flex bison gperf ruby perl \
+RUN apt-get remove -y git python build-essential g++ flex bison gperf ruby perl \
   libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
-  libpng-dev libjpeg-dev && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Default command
-ENTRYPOINT "phantomjs"
-CMD ["--help"]
+  libpng-dev libjpeg-dev && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  
