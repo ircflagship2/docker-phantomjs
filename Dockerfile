@@ -10,7 +10,7 @@ RUN apt-get -y install git python build-essential g++ flex bison gperf ruby perl
   cd /opt && \
   git clone git://github.com/ariya/phantomjs.git && \
   cd phantomjs && \
-  git checkout 2.0 && \  
+  git checkout 1.9 && \  
   ./build.sh --confirm && \
   ln -s /opt/phantomjs/bin/phantomjs /usr/local/bin/phantomjs && \
   find /opt/phantomjs/ -maxdepth 1 -not -path "*/" -not -path "*/bin" -exec rm -rf {} +
